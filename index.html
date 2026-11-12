@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="/app/favicon.ico" />
+    <title>BUY$ The Card Game — Coming December 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Oswald:wght@500;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --navy: #20275d;
+        --navy-deep: #161b42;
+        --cream: #f7ecd4;
+        --gold: #e0ab2a;
+        --gold-deep: #c49216;
+        --line: rgba(224, 171, 42, 0.35);
+        --black: black;
+        --gray: #c9c9c9;
+        --white: #ffffff;
+        --dark-green: #1A2B22;
+        --light-green: #24382C;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--navy);
+        color: var(--cream);
+        font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+        font-size: 17px;
+        line-height: 1.6;
+      }
+
+      a:focus-visible {
+        outline: 2px solid var(--gold);
+        outline-offset: 3px;
+      }
+
+      .wrap {
+        width: min(1040px, calc(100% - 40px));
+        margin: 0 auto;
+      }
+
+      .brand {
+        padding: 18px 0 4px;
+        text-align: center;
+      }
+
+      .brand img {
+        width: min(380px, 88%);
+        height: auto;
+      }
+
+      .brand h1 {
+        margin: 0;
+        color: var(--black);
+        font-family: "Times New Roman", Times, serif;
+        font-size: clamp(28px, 4vw, 40px);
+        font-weight: 600;
+      }
+
+      .intro {
+        padding: 12px 8px;
+        text-align: center;
+      }
+
+      .tagline {
+        margin: 24px 0 0;
+        color: var(--gold);
+        font-family: Oswald, sans-serif;
+        font-size: clamp(26px, 3vw, 34px);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        line-height: 1.75;
+        text-shadow: 0 1px 2px rgba(0,0,0, 0.4);
+      }
+
+      .divider {
+        width: 60%;
+        margin: 36px auto;
+        border: 0;
+        border-top: 1px solid #fff;
+      }
+
+      .preorder {
+        min-height: 68px;
+        margin: 0;
+        padding: 20px 48px;
+        border: 2px solid var(--gold);
+        border-radius: 999px;
+        background: var(--light-green);
+        color: var(--cream);
+        box-shadow: none;
+        font-size: 20px;
+        letter-spacing: 0.16em;
+        width: 80%;
+      }
+
+      .preorder:hover,
+      .btn.preorder:hover {
+        background: #2d4636;
+      }
+
+      .facts {
+        position: absolute;
+        left: 50%;
+        bottom: 5%;
+        transform: translateX(-50%);
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.4cqw;
+        width: max-content;
+        max-width: 94%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+
+      .facts li {
+        padding: 0.45em 0.85em;
+        border: 1px solid var(--white);
+        border-radius: 999px;
+        background: rgba(22, 27, 66, 1);
+        color: var(--white);
+        font-family: Oswald, sans-serif;
+        font-size: clamp(11px, 3.1cqw, 15px);
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+        box-shadow: 6px 6px 10px rgba(0,0,0,0.5);
+      }
+
+      .product-frame {
+        grid-area: product;
+        position: relative;
+        container-type: inline-size;
+      }
+
+      .product {
+        display: block;
+        width: 100%;
+        height: auto;
+        border-radius: 16px;
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+      }
+
+      .story {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+        grid-template-areas:
+          "intro product"
+          "blurb blurb";
+        align-items: center;
+        gap: 28px 32px;
+        margin-top: 20px;
+        padding: 28px;
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: rgba(8, 12, 36, 0.28);
+      }
+
+      .intro {
+        grid-area: intro;
+      }
+
+      .blurb {
+        grid-area: blurb;
+        margin: 4px 0 0;
+        text-align: left;
+        color: var(--gray);
+      }
+
+      .blurb p {
+        margin: 0 0 14px;
+      }
+
+      .blurb p:last-child {
+        margin-bottom: 0;
+      }
+
+      .score-help {
+        margin: 32px 0 16px;
+        padding: 38px 24px;
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.04);
+        text-align: center;
+      }
+
+      .score-help h2 {
+        margin: 0 0 20px;
+        color: var(--cream);
+        font-family: Oswald, sans-serif;
+        font-size: clamp(22px, 3vw, 28px);
+        font-weight: 600;
+        letter-spacing: 0.04em;
+      }
+
+      .score-choices {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 16px 18px;
+      }
+
+      .score-choices .btn {
+        align-self: auto;
+      }
+
+      .or {
+        color: var(--gold);
+        font-family: Oswald, sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.12em;
+      }
+
+      .shop {
+        display: flex;
+        justify-content: center;
+        margin: 0 0 8px;
+      }
+
+      footer .wrap {
+        position: relative;
+      }
+
+      .gama {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 72px;
+        height: auto;
+        border-radius: 4px;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        align-self: flex-start;
+        min-height: 46px;
+        padding: 12px 16px;
+        border-radius: 10px;
+        background: var(--gold);
+        color: #1b2148;
+        white-space: nowrap;
+        font-family: Oswald, sans-serif;
+        font-size: 15px;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        text-decoration: none;
+      }
+
+      .btn:hover {
+        background: #f0c04a;
+      }
+
+      .btn.preorder {
+        background: var(--light-green);
+        color: var(--cream);
+        border: 2px solid var(--gold);
+      }
+
+      .btn.preorder:hover {
+        background: #2d4636;
+      }
+
+      .btn.tracker {
+        border: 2px solid var(--gold);
+        background: var(--dark-green);
+        color: var(--cream);
+      }
+
+      .btn.tracker:hover {
+        background: #24382c;
+      }
+
+      .action img {
+        width: 84px;
+        height: auto;
+        border-radius: 6px;
+      }
+
+      footer {
+        padding: 28px 0 36px;
+        border-top: 1px solid var(--line);
+        text-align: center;
+      }
+
+      footer p {
+        margin: 0 0 6px;
+      }
+
+      .company {
+        color: var(--gold);
+        font-family: Oswald, sans-serif;
+        font-size: 18px;
+        letter-spacing: 0.06em;
+      }
+
+      .address {
+        font-size: 14px;
+      }
+
+      footer a {
+        color: var(--cream);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .legal {
+        margin-top: 12px;
+      }
+
+      .legal a {
+        color: var(--gold);
+        font-size: 14px;
+        margin: 0 10px;
+      }
+
+      .copyright {
+        margin-top: 14px;
+        font-size: 13px;
+        opacity: 0.7;
+      }
+
+      @media (max-width: 800px) {
+        .wrap {
+          width: min(1040px, calc(100% - 28px));
+        }
+
+        .intro {
+          padding-top: 4px;
+        }
+
+        .story {
+          grid-template-columns: 1fr;
+          grid-template-areas:
+            "intro"
+            "product"
+            "blurb";
+          gap: 20px;
+          padding: 22px 18px;
+        }
+
+        .score-choices,
+        .shop {
+          flex-direction: column;
+          align-items: stretch;
+        }
+
+        .score-choices .btn,
+        .shop .btn {
+          width: 100%;
+        }
+
+        .gama {
+          position: static;
+          display: block;
+          margin: 18px auto 0;
+        }
+
+        .or {
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div class="wrap">
+        <header class="brand">
+          <img
+            src="app/assets/assets/logo.26e300c0092d89d654b9fb46baed2afe.png"
+            alt="BUY$"
+          />
+          <h1>THE CARD GAME</h1>
+        </header>
+
+        <section class="story">
+          <div class="intro">
+            <p class="tagline">WHOEVER SAID MONEY CAN'T BUY HAPPINESS WASN'T FILTHY STINKIN' RICH!</p>
+            <hr class="divider" />
+            <a class="btn preorder" href="https://a.co/d/0e6mES7L" target="_blank" rel="noopener noreferrer">PRE-ORDER NOW</a>
+          </div>
+          <div class="product-frame">
+            <img
+              class="product"
+              src="app/assets/assets/product/contents.2eb25b671cb568cfaab83a43a8789ae7.jpg"
+              alt="BUY$ The Card Game box, cards, and gold tokens"
+            />
+            <ul class="facts">
+              <li>2–8 PLAYERS</li>
+              <li>AGES 10+</li>
+              <li>45–90 MIN</li>
+            </ul>
+          </div>
+          <div class="blurb">
+            <p>
+              Buy!! The Card Game is a fast-paced, rummy-style game with a rapid-fire auction twist.
+            </p>
+            <p>
+              Complete assigned Sets and Runs during selected Auction Rounds by purchasing the numbered
+              Luxury Item Cards you need from you frenemies or at action... If you are quick enough.
+            </p>
+            <p>
+              But hurry! You have only a limited number of Golden BUY opportunities and every Auction
+              Round moves fast.
+            </p>
+            <p>
+              Display your ever-growing collections while avoiding excessive Luxury Taxes and you could
+              become the ULTIMATE WINNER of Buy!! The Card Game.
+            </p>
+          </div>
+        </section>
+
+        <section class="score-help" aria-label="Score tools">
+          <h2>Need help keeping score?</h2>
+          <div class="score-choices">
+            <a class="btn tracker" href="BUY%20Printable%20Score%20Card.pdf" download="BUY Printable Score Card.pdf">↓ DOWNLOAD SCORE CARD</a>
+            <span class="or">-or-</span>
+            <a class="btn tracker" href="/app">OPEN SCORE TRACKER APP</a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <div class="wrap">
+        <p class="company">Student Properties LLC</p>
+        <p class="address">7902 Lakeshore Drive, Granite Bay, CA 95746</p>
+        <p><a href="mailto:stefmatt1@buythecardgame.com">stefmatt1@buythecardgame.com</a></p>
+        <p class="legal">
+          <a href="privacy.html">Privacy Policy</a>
+          <a href="terms.html">Terms of Use</a>
+        </p>
+        <p class="copyright">© 2026 Student Properties LLC. All rights reserved.</p>
+        <img class="gama" src="images/gama-member-badge.jpg" alt="GAMA Member" />
+      </div>
+    </footer>
+  </body>
+</html>
